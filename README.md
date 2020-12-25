@@ -22,7 +22,10 @@ nextjs
 ├───pages
 │   ├───api
 │   ├───_app.js
-│   └───index.js
+│   ├───index.js
+│   └───pathname*
+│        ├───index.tsx
+│        └───[id].tsx
 ├───pubilc
 │   └───...
 └───styles
