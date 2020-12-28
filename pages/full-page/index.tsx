@@ -1,11 +1,11 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
-import Layout from '../../layouts/layout'
+import Layout from '../../layouts/layoutFullPage'
 
 const About = ({ file }) => {
   const message = 'message'
   return (
-    <Layout>
+    <Layout title='Full Pages'>
       <h1>
         About Pages - {message}
       </h1>

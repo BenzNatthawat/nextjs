@@ -1,9 +1,17 @@
-import Layout from '../layouts/layout'
+import Layout from '../layouts/layoutFullPage'
 
-export default function Home() {
+const home = (props: any) => {
+  console.log(props)
   return (
     <Layout>
       Home
     </Layout>
   )
 }
+
+export async function getStaticProps() {
+  console.log('getStaticProps')
+  return { props: { name: 'getStaticProps' } }
+}
+
+export default home
