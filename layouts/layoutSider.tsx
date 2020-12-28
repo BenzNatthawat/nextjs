@@ -4,18 +4,20 @@ import Header from '../components/Header'
 import Sider from '../components/Sider'
 const { Content } = Layout
 
-const layoutSider = ({ children }: any) => {
+const layoutSider = ({ children, breadcrumb }: any) => {
   return (
     <Layout>
       <Header />
       <Layout>
         <Sider />
         <Layout className='layout-content'>
-          <Breadcrumb className='header-content'>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
+          {breadcrumb?.length > 0 &&
+            <Breadcrumb className='header-content'>
+              {breadcrumb.map((bc: string) => (
+                <Breadcrumb.Item>{bc}</Breadcrumb.Item>
+              ))}
+            </Breadcrumb>
+          }
           <Content className='site-layout-background' >
             {children}
           </Content>

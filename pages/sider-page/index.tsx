@@ -1,23 +1,29 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
 import Layout from '../../layouts/layoutSider'
+import Link from 'next/link'
 
-const About = ({ file }) => {
+const SiderPage = ({ file }) => {
   const message = 'message'
   return (
-    <Layout>
+    <Layout breadcrumb={['Home', 'List']}>
       <h1>
-        About Pages - {message}
+        Sider Page - {message}
       </h1>
-      <img width={150} src={file} />
+      <div>
+        <img width={150} src={file} />
+      </div>
+      <div>
+        <Link href={`/sider-page/${Math.floor(Math.random() * 100)}`} >Sider Page</Link>
+      </div>
     </Layout>
   )
 }
 
-About.getInitialProps = async () => {
+SiderPage.getInitialProps = async () => {
   const res = await fetch('https://aws.random.cat/meow')
   const data = await res.json()
   return data
 }
 
-export default About
+export default SiderPage
