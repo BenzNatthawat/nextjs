@@ -1,15 +1,16 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
+import Layout from '../../layouts/layout'
 
 const About = ({ file }) => {
   const message = 'message'
   return (
-    <>
+    <Layout>
       <h1>
         About Pages - {message}
       </h1>
       <img width={150} src={file} />
-    </>
+    </Layout>
   )
 }
 
