@@ -16,21 +16,26 @@ scss
 
 ## structure
 
+```
 nextjs
-├───components
+├───components         // ส่วนย่อยๆ ของ component
 │   ├───component.js
 │   └───...
-├───layouts
+├───layouts            // ส่วน layout ที่ใช้ร่วมกันหลายๆหน้า
 │   ├───layout.js
 │   └───...
-├───pages
-│   ├───api
+├───pages              // ส่วนแต่ละหน้าของเว็บไซต์
+│   ├───api            // api
+│   │    ├───hello.js
+│   │    └───...
 │   ├───_app.js
 │   ├───index.js
-│   └───pathname*
-│        ├───index.tsx
-│        └───[id].tsx
+│   └───pathname*      // ชื่อ path ตรงกับชื่อโฟรเดอร์
+│        ├───index.js
+│        ├───[id].js
+│        └───...
 ├───pubilc
 │   └───...
 └───styles
     └───index.css
+```
