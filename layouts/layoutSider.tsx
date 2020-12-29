@@ -12,7 +12,7 @@ const layoutSider = ({ children, breadcrumb }: any) => {
         <Sider />
         <Layout className='layout-content'>
           {breadcrumb?.length > 0 &&
-            <Breadcrumb className='header-content'>
+            <Breadcrumb separator='>' className='header-content'>
               {breadcrumb.map((bc: string) => (
                 <Breadcrumb.Item>{bc}</Breadcrumb.Item>
               ))}

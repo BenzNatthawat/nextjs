@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd'
 import Link from 'next/link'
-import { SettingOutlined, UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-const { SubMenu } = Menu;
-const { Sider } = Layout;
+import { SettingOutlined, UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons'
+const { SubMenu } = Menu
+const { Sider } = Layout
 
 const SiderComponent = () => {
   const [collapsed, setCollapsed] = useState(false)
