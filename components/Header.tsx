@@ -8,12 +8,16 @@ const HeaderComponent = () => {
     <Header className='header'>
 
       <div className='logo'>
-        <img height={50} src='/next-logo.png' />
+        <Link href='/' >
+          <img height={50} src='/next-logo.png' />
+        </Link>
       </div>
 
       <Menu theme='dark' mode='horizontal'>
         <Menu.Item key='1'><Link href='/full-page' >Full Page</Link></Menu.Item>
         <Menu.Item key='2'><Link href='/sider-page' >Sider Page</Link></Menu.Item>
+        <Menu.Item key='3' className='menu-rigth'><Link href='/login' >Login</Link></Menu.Item>
+        <Menu.Item key='4' className='menu-rigth'><Link href='/register' >Register</Link></Menu.Item>
       </Menu>
     </Header>
   )

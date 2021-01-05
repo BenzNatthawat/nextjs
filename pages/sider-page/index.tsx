@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '../../layouts/layoutSider'
 import Link from 'next/link'
 
-const SiderPage = ({ file }) => {
+const SiderPage = ({ todos }: any) => {
   const message = 'message'
   return (
     <Layout breadcrumb={['Home', 'List']}>
@@ -11,19 +11,42 @@ const SiderPage = ({ file }) => {
         Sider Page - {message}
       </h1>
       <div>
-        <img width={150} src={file} />
-      </div>
-      <div>
-        <Link href={`/sider-page/${Math.floor(Math.random() * 100)}`} >Sider Page</Link>
+        {todos.map((todo: any) => {
+          return <Link href={`/sider-page/${todo.id}`} ><div>{todo.id} {todo.title}</div></Link>
+        })}
       </div>
     </Layout>
   )
 }
 
-SiderPage.getInitialProps = async () => {
-  const res = await fetch('https://aws.random.cat/meow')
-  const data = await res.json()
-  return data
+export async function getPostData() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos')
+  const todos = await res.json()
+  return todos
 }
+
+export async function getStaticPaths() {
+  const data = await getPostData()
+  const paths = data.map((todo: any) => ({
+    params: { id: todo.id },
+  }))
+  return {
+    paths: paths,
+    fallback: false
+  }
+}
+
+export async function getStaticProps() {
+  const data = await getPostData()
+  return {
+    props: {
+      todos: data
+    }
+  }
+}
+
+// getStaticProps
+// getStaticPaths
+// getServerSideProps
 
 export default SiderPage

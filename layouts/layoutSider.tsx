@@ -13,8 +13,8 @@ const layoutSider = ({ children, breadcrumb }: any) => {
         <Layout className='layout-content'>
           {breadcrumb?.length > 0 &&
             <Breadcrumb separator='>' className='header-content'>
-              {breadcrumb.map((bc: string) => (
-                <Breadcrumb.Item>{bc}</Breadcrumb.Item>
+              {breadcrumb.map((bc: string, index: number) => (
+                <Breadcrumb.Item key={index}>{bc}</Breadcrumb.Item>
               ))}
             </Breadcrumb>
           }
