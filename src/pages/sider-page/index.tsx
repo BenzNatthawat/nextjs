@@ -12,7 +12,7 @@ const SiderPage = ({ todos }: any) => {
       </h1>
       <div>
         {todos.map((todo: any) => {
-          return <Link href={`/sider-page/${todo.id}`} ><div>{todo.id} {todo.title}</div></Link>
+          return <Link href={`/sider-page/[id]`} as={`/sider-page/${todo.id}`} ><div>{todo.id} {todo.title}</div></Link>
         })}
       </div>
     </Layout>
@@ -25,17 +25,6 @@ export async function getPostData() {
   return todos
 }
 
-export async function getStaticPaths() {
-  const data = await getPostData()
-  const paths = data.map((todo: any) => ({
-    params: { id: todo.id },
-  }))
-  return {
-    paths: paths,
-    fallback: false
-  }
-}
-
 export async function getStaticProps() {
   const data = await getPostData()
   return {
@@ -44,9 +33,5 @@ export async function getStaticProps() {
     }
   }
 }
-
-// getStaticProps
-// getStaticPaths
-// getServerSideProps
 
 export default SiderPage

@@ -33,8 +33,8 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(props: any) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${props.params.id}`)
+export async function getStaticProps({ params }: any) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${params.id}`)
   const todos = await res.json()
   return {
     props: todos

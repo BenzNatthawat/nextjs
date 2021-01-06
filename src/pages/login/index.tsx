@@ -1,12 +1,16 @@
 import React from 'react'
 import Layout from '../../layouts/layoutAuth'
 import { Form, Input, Button, Checkbox } from 'antd'
+import { useRouter } from 'next/router'
 
-const LoginPage = (props: any) => {
-  console.log(props)
+const LoginPage = () => {
+  const router = useRouter()
+  const login = (data: any) => {
+    console.log(data)
+  }
   return (
     <Layout>
-      <Form className='auth' onFinish={(data) => console.log(data)}>
+      <Form className='auth' onFinish={login}>
         <Form.Item
           label="Username"
           name="username"
@@ -32,17 +36,12 @@ const LoginPage = (props: any) => {
             Login
         </Button>
         </Form.Item>
+        <Form.Item>
+          <span onClick={() => router.back()}>Click here to go back</span>
+        </Form.Item>
       </Form>
     </Layout>
   )
-}
-
-export const getStaticProps = async () => {
-  // const resA = await fetch('/api/hello')
-  // const resB = await fetch(`${process.env.SERVER}/api/hello`)
-  // console.log(resA)
-  // console.log(resB)
-  return { props: { name: 'getStaticProps' } }
 }
 
 export default LoginPage
